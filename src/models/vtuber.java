@@ -1,7 +1,14 @@
 package models;
 
-public class vtuber {
+import java.util.Vector;
+
+import observer.Announcer;
+import singleton.VtubeRepository;
+
+public class vtuber implements Announcer{
 	
+	VtubeRepository VtuberRepo = VtubeRepository.getInstance();
+	Vector <vtuber> allVtuber = VtuberRepo.getVtuberList();
 	private String name;
 	private int age;
 	private String game;
@@ -56,5 +63,23 @@ public class vtuber {
 	public void setYn(String yn) {
 		this.yn = yn;
 	}
+
+	@Override
+	public void join(String name) {
+		// TODO Auto-generated method stub
+		for (vtuber vtuber : allVtuber) {
+			System.out.println("["+vtuber.getName()+"] "+name+" has join vtubRE. Please welcome "+name);
+		}
+	}
+
+	@Override
+	public void leave(String name) {
+		// TODO Auto-generated method stub
+		for (vtuber vtuber : allVtuber) {
+			System.out.println("["+vtuber.getName()+"] We are so sad to announce that "+name+" has left the from our agency");
+		}
+	}
+
+	
 
 }

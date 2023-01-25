@@ -8,7 +8,6 @@ public class VtubeRepository {
 
 	private static VtubeRepository instance = null;
 	private Vector<vtuber> vtuberList = null;
-	
 	private VtubeRepository() {
 		vtuberList = new Vector<>();
 	}
@@ -33,11 +32,15 @@ public class VtubeRepository {
 	}
 	
 	public void addVtuber(vtuber vtuber) {
+		vtuber.join(vtuber.getName());
 		vtuberList.add(vtuber);
 	}
 
 	public void graduateVtuber(int index) {
+		vtuber vt = vtuberList.get(index-1);
 		vtuberList.remove(index-1);
+		vt.leave(vt.getName());
 	}
+	
 	
 }
