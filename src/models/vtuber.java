@@ -81,6 +81,65 @@ public class vtuber implements Announcer{
 		}
 		System.out.println();
 	}
+	
+	//template 
+		private void getup() {
+			try {
+				Thread.sleep(2000);
+				System.out.println(this.name + " is waking up...");
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+		
+		private void goLive() {
+			try {
+				Thread.sleep(2000);
+				System.out.println(this.name + " is live now...");
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		private void sleep() {
+			try {
+				Thread.sleep(2000);
+				System.out.println(this.name + " is sleeping zZz...");
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		private void workingOut() {
+			try {
+				Thread.sleep(2000);
+				System.out.println(this.name + " is working out now...");
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		private void showEarning() {
+			int earning = income + 2000;
+			System.out.println("Total Income : IDR" + income);
+			this.setIncome(earning);
+		}
+		
+		public void dailyRoutine() {
+			System.out.println("===========================================");
+			System.out.println("This is your fav vtuber's daily routine : D");
+			System.out.println("===========================================");
+			getup();
+			goLive();
+			workingOut();
+			sleep();
+			showEarning();
+		}
 
 	
 
