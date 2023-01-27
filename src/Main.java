@@ -32,7 +32,8 @@ public class Main {
 			System.out.println("1. Add Vtuber");
 			System.out.println("2. View All Vtuber");
 			System.out.println("3. Graduate Vtuber");
-			System.out.println("4. Exit");
+			System.out.println("4. Vtuber's daily routine");
+			System.out.println("5. Exit");
 			System.out.print(">> ");
 			try {
 				menu = scan.nextInt(); scan.nextLine();
@@ -51,11 +52,49 @@ public class Main {
 					graduate();
 					break;
 				case 4:
+					vtuberDailyRoutine();
+					break;
+				case 5:
+					System.out.println("Thanks for visiting! :D");
 					return;
 			}
-		}while(menu != 4);
+		}while(menu != 5);
 	}
 	
+	private void vtuberDailyRoutine() {
+		if(VtuberRepo.getVtuberList().isEmpty()){
+			System.out.println("No data\n"); return;
+		} else {
+			int size = VtuberRepo.getVtuberList().size(), index = 0;
+			
+			for(int i = 0; i < size; i++) {
+				vtuber This = VtuberRepo.getVtuberList().get(i);
+				System.out.printf("No : %d\n", i+1);
+				System.out.println("Name : " + This.getName());
+				System.out.println("Age : " + This.getAge());
+				System.out.println("Fav Game : " + This.getGame());
+				System.out.println("Fav Anime : " + This.getAnime());
+				System.out.println("Income : $ " + This.getIncome());
+				if(This.getYn() == null) {
+					System.out.println("Twitter Acc : - ");
+				} else {
+					System.out.println("Twitter Acc : " + This.getName() + " Ch.");					
+				}
+				System.out.println();
+			}
+			System.out.println();
+			
+			while(true) {
+				System.out.printf("Input vtuber you want to see the daily routine [ 1 - %d ] : \n", size);
+				index = scan.nextInt(); scan.nextLine(); 
+				if(index >= 1 && index < size) break;
+			}
+			VtuberRepo.getVtuberList().get(index).dailyRoutine();
+			scan.nextLine();
+		}
+		
+	}
+
 	public void add() {
 		String name, game, anime, yn;
 		int age, income;
