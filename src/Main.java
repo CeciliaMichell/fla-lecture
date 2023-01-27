@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 import adapter.Adapter_Currency;
 import builder.VtubeBuilder;
+import facade.initialize;
 import models.vtuber;
 import singleton.VtubeRepository;
 
@@ -9,8 +10,10 @@ public class Main {
 
 	Scanner scan = new Scanner(System.in);
 	VtubeRepository VtuberRepo = VtubeRepository.getInstance();
+	initialize init = new initialize();
 	
 	public Main() {
+		init.initializeVtuber();
 		mainMenu();
 	}
 	

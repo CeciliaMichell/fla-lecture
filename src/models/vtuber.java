@@ -66,18 +66,20 @@ public class vtuber implements Announcer{
 
 	@Override
 	public void join(String name) {
-		// TODO Auto-generated method stub
+		System.out.println("========== Announcement ==========");
 		for (vtuber vtuber : allVtuber) {
 			System.out.println("["+vtuber.getName()+"] "+name+" has join vtubRE. Please welcome "+name);
 		}
+		System.out.println();
 	}
 
 	@Override
 	public void leave(String name) {
-		// TODO Auto-generated method stub
+		System.out.println("========== Announcement ==========");
 		for (vtuber vtuber : allVtuber) {
 			System.out.println("["+vtuber.getName()+"] We are so sad to announce that "+name+" has left the from our agency");
 		}
+		System.out.println();
 	}
 
 	

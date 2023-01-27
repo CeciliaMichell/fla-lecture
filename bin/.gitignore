@@ -1,6 +1,2 @@
-/Main.class
-/adapter/
-/builder/
+/facade/
 /models/
-/singleton/
-/observer/
